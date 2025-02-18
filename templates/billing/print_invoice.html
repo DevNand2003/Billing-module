@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill - Invoice {{ invoice.invoice_number }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
+        table { width: 50%; margin: auto; border-collapse: collapse; border: 1px solid #ddd; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .total { font-weight: bold; }
+        .print-btn { display: none; } /* Hide button in print view */
+        @media print { 
+            .print-btn { display: none; } 
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Bill</h2>
+    <table>
+        <tr><th>Invoice Number</th><td>{{ invoice.invoice_number }}</td></tr>
+        <tr><th>Company</th><td>{{ invoice.company }}</td></tr>
+        <tr><th>Rent per Day</th><td>{{ invoice.rent_per_day }}</td></tr>
+        <tr><th>Start Date</th><td>{{ invoice.start_date }}</td></tr>
+        <tr><th>End Date</th><td>{{ invoice.end_date }}</td></tr>
+        <tr><th>Discount</th><td>{{ invoice.discount }}%</td></tr>
+        <tr><th>GST%</th><td>{{ invoice.gst }}%</td></tr>
+        <tr><th>Due Amount</th><td>{{ invoice.due }}</td></tr>
+        <tr class="total"><th>Total Amount</th><td>{{ invoice.total_amount }}</td></tr>
+    </table>
+
+    <br>
+    <button class="print-btn" onclick="window.print()">Print</button>
+
+</body>
+</html>
